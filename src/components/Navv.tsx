@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navv = () => {
   return (
     <Navbar bg="black" data-bs-theme="dark" className="mb-5">
-      <Container>
+      <Container fluid className="px-5">
         <Navbar.Brand href="#home">SPACE-art</Navbar.Brand>
         <Nav className="me-auto">
           <Link

@@ -1,12 +1,11 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
 import ResultInterface from "../interfaces/result";
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Detail = () => {
   const [details, setDetails] = useState<ResultInterface>({});
   const params = useParams();
-  const navigate = useNavigate();
 
   const fetchSingleArticle = async () => {
     try {
