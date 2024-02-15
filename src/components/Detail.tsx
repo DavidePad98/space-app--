@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 const Detail = () => {
-  const [details, setDetails] = useState<ResultInterface>({});
+  const [details, setDetails] = useState<ResultInterface | null>(null);
   const params = useParams();
 
   const fetchSingleArticle = async () => {
@@ -34,13 +34,16 @@ const Detail = () => {
       <Row className="justify-content-center mb-5">
         <Col xs={12} md={6}>
           <Card className="border-0 h-100 text-white bg-transparent ">
-            <Card.Title className="mb-4">{details.title}</Card.Title>
-            <Card.Img variant="top" src={details.image_url} />
+            <Card.Title className="mb-4">{details?.title}</Card.Title>
+            <Card.Img variant="top" src={details?.image_url} />
             <Card.Body>
-              <Card.Text>{details.summary}</Card.Text>
+              <Card.Text>{details?.summary}</Card.Text>
               <Card.Text className="text-end fs-c">
-                <Link to={details.url} className="text-white fw-bold ">
-                  {details.news_site}
+                <Link
+                  to={details ? details.url : ""}
+                  className="text-white fw-bold "
+                >
+                  {details?.news_site}
                 </Link>
               </Card.Text>
             </Card.Body>
